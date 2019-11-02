@@ -1,0 +1,8 @@
+
+/*USE THE BELOW COMMAND TO CREATE NEW POSTGRES DATABASE NAMED "SHAPE" */
+
+createdb -U geosolutions -T postgis20 shape
+
+/*USE THE BELOW COMMAND TO the shape file into "MAIN_ROADS" TABLE OF "SHAPE" DATABASE */
+
+shp2pgsql -I ${TRAINING_ROOT}/data/user_data/YOUR_SHAPE_FILE.shp public.main_roads | psql -d shape
