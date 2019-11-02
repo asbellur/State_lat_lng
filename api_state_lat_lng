@@ -1,0 +1,10 @@
+import requests
+geo_url = 'http://maps.googleapis.com/maps/api/geocode/json'
+address = input('Type the address here')
+my_address = {'address': address,'language': 'en'}
+#my_address
+response = requests.get(geo_url, params = my_address, key=YOUR_API_KEY)
+results = response.json()['results']
+#results
+my_geo = results[0]['geometry']['location']['address_components']
+print("Longitude:",my_geo['lng'],"\n","Latitude:",my_geo['lat'],"\n","State:",my_geo['short_name'])
